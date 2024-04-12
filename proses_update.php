@@ -1,6 +1,6 @@
 <?php
 // Memeriksa apakah data yang diperlukan telah diterima dari formulir
-if(isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['email']) && isset($_POST['alamat']) && isset($_POST['telepon']) && isset($_POST['pendidikan']) && isset($_POST['pengalaman'])) {
+if(isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['email']) && isset($_POST['alamat']) && isset($_POST['telepon']) && isset($_POST['pendidikan']) && isset($_POST['universitas']) && isset($_POST['pengalaman'])  && isset($_POST['deskripsi'])) {
     // Mendapatkan data dari formulir
     $id = $_POST['id'];
     $nama = $_POST['nama'];
@@ -8,13 +8,15 @@ if(isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['email']) && iss
     $alamat = $_POST['alamat'];
     $telepon = $_POST['telepon'];
     $pendidikan = $_POST['pendidikan'];
+    $universitas = $_POST['universitas'];
     $pengalaman = $_POST['pengalaman'];
+    $deskripsi = $_POST['deskripsi'];
 
     // Memanggil koneksi ke database
     include('koneksi.db.php');
 
     // Menyiapkan pernyataan SQL untuk mengupdate data
-    $sql = "UPDATE data_pelamar SET nama='$nama', email='$email', alamat='$alamat', telepon='$telepon', pendidikan='$pendidikan', pengalaman='$pengalaman' WHERE id='$id'";
+    $sql = "UPDATE data_pelamar SET nama='$nama', email='$email', alamat='$alamat', telepon='$telepon', pendidikan='$pendidikan', universitas='$universitas', pengalaman='$pengalaman', deskripsi='$deskripsi' WHERE id='$id'";
 
     // Menjalankan pernyataan SQL dan memeriksa keberhasilannya
     if ($koneksi->query($sql) === TRUE) {
