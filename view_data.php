@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <!-- penambahan css -->
+    <link rel="stylesheet" href="css/abrar.css">
     <title>Data Pelamar</title>
 </head>
 <body>
-    <h2>Data Pelamar</h2>
-    <a href="index.php">Menu Utama</a>
+    <!-- pemanbahan div -->
+    <div class="container2">
+    <h2>Data Pelamar</h2></br>
+    <!-- mengubah tampilan tombol -->
+    <a class="button" href="index.php">Menu Utama</a>
     <table>
         <tr>
             <th>ID</th>
             <th>Nama</th>
             <th>Email</th>
-            <th>Alamat</th>
             <th>Telepon</th>
             <th>Pendidikan</th>
-            <th>Pengalaman (tahun)</th>
             <th>Action</th>
         </tr>
         <?php
@@ -35,14 +38,12 @@
                 echo "<td>" . $row["id"] . "</td>";
                 echo "<td>" . $row["nama"] . "</td>";
                 echo "<td>" . $row["email"] . "</td>";
-                echo "<td>" . $row["alamat"] . "</td>";
                 echo "<td>" . $row["telepon"] . "</td>";
                 echo "<td>" . $row["pendidikan"] . "</td>";
-                echo "<td>" . $row["pengalaman"] . "</td>";
                 // tombol delete dengan link ke halaman proses_delete.php dengan parameter id
-                echo "<td><a href='proses_delete.php?id=" . $row["id"] . "' class='delete-btn'>Delete</a>
-                          <a href='update_form.php?id=" . $row["id"] . "' class='update-btn'>Update</a>
-                          <a href='detail_form.php?id=" . $row["id"] . "' class='update-btn'>Detail</a>
+                echo "<td><a href='detail_form.php?id=" . $row["id"] . "' class='button1'>Detail</a>
+                          <a href='update_form.php?id=" . $row["id"] . "' class='button3'>Update</a>
+                          <a href='proses_delete.php?id=" . $row["id"] . "' class='button2'>Delete</a>
                       </td>";
                 echo "</tr>";
             }
@@ -54,5 +55,6 @@
         $koneksi->close();
         ?>
     </table>
+    </div>
 </body>
 </html>
