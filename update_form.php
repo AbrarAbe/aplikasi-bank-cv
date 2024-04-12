@@ -16,19 +16,8 @@
         // Mendapatkan ID pelamar dari parameter GET
         $id = $_GET['id'];
 
-        // Konfigurasi database
-        $host = "localhost"; // Ganti dengan host Anda
-        $username = "root"; // Ganti dengan nama pengguna MySQL Anda
-        $password = ""; // Ganti dengan kata sandi MySQL Anda
-        $database = "cvbank"; // Ganti dengan nama database Anda
-
-        // Membuat koneksi ke database
-        $koneksi = new mysqli($host, $username, $password, $database);
-
-        // Memeriksa koneksi
-        if ($koneksi->connect_error) {
-            die("Koneksi gagal: " . $koneksi->connect_error);
-        }
+        // Memanggil koneksi ke database
+        include('koneksi.db.php');
 
         // Menyiapkan dan menjalankan query untuk mendapatkan data pelamar berdasarkan ID
         $sql = "SELECT * FROM data_pelamar WHERE id='$id'";

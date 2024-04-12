@@ -10,19 +10,8 @@ if(isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['email']) && iss
     $pendidikan = $_POST['pendidikan'];
     $pengalaman = $_POST['pengalaman'];
 
-    // Konfigurasi database
-    $host = "localhost"; // Ganti dengan host Anda
-    $username = "root"; // Ganti dengan nama pengguna MySQL Anda
-    $password = ""; // Ganti dengan kata sandi MySQL Anda
-    $database = "cvbank"; // Ganti dengan nama database Anda
-
-    // Membuat koneksi ke database
-    $koneksi = new mysqli($host, $username, $password, $database);
-
-    // Memeriksa koneksi
-    if ($koneksi->connect_error) {
-        die("Koneksi gagal: " . $koneksi->connect_error);
-    }
+    // Memanggil koneksi ke database
+    include('koneksi.db.php');
 
     // Menyiapkan pernyataan SQL untuk mengupdate data
     $sql = "UPDATE data_pelamar SET nama='$nama', email='$email', alamat='$alamat', telepon='$telepon', pendidikan='$pendidikan', pengalaman='$pengalaman' WHERE id='$id'";
