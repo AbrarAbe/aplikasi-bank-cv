@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Form Aplikasi Bank CV Para Programmer</h2></br>
+        <h2>Form Aplikasi Bank CV Para Programmer</h2></br></br>
         <form action="proses.php" method="post" enctype="multipart/form-data"> <!--enctype attribut untuk izin upload file--> 
             <label for="nama">Nama Lengkap :</label>
             <input type="text" id="nama" name="nama" required placeholder="Nama Lengkap"><br>
@@ -33,23 +33,23 @@
                 <option value="Magister (S2)">Magister (S2)</option>
                 <option value="Doktor (S3)">Doktor (S3)</option>
             </select><br>
-            <!-- tambah kolom univeristas -->
+            <!-- tambah univeristas -->
             <label for="universitas">Universitas :</label>
             <input type="text" id="universitas" name="universitas" required placeholder="Universitas"><br>
-            <!-- tambah kolom pengalaman -->
+            <!-- tambah pengalaman -->
             <label for="pengalaman">Pengalaman Kerja (dalam tahun) :</label>
             <input type="number" id="pengalaman" name="pengalaman" min="0" required><br>
-            <!-- tambah kolom deskripsi -->
+            <!-- tambah deskripsi -->
             <label for="deskripsi">Deskripsi Pengalaman :</label>
             <textarea id="deskripsi" name="deskripsi" rows="6" required placeholder="Deskripsi Pengalaman Kerja"></textarea></br>
-            <!-- tambah kolom upload CV -->
-            <label for="cv">Upload CV :</label>
-            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required><br>
-            <!-- tambah kolom upload Pas Foto -->
+            <!-- tambah upload CV -->
+            <label for="cv">Upload CV (PDF):</label>
+            <input type="file" id="cv" name="cv" accept=".pdf" required><br>
+            <!-- tambah upload Pas Foto -->
             <label for="foto">Upload Pas Foto :</label>
             <input type="file" id="foto" name="foto" accept="image/*" required><br>
 
-            <input type="submit" value="Submit">
+            <input class="mgr" type="submit" value="Submit">
         </form>
         <!-- mengubah tampilan tombol -->
         <a class="button" href="view_data.php">Lihat Data</a>
