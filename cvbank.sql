@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2024 at 05:53 PM
+-- Generation Time: Apr 13, 2024 at 01:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,15 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokumen`
---
-
-CREATE TABLE `dokumen` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `cv` LONGBLOB,
-    `foto` LONGBLOB
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
---
 -- Table structure for table `data_pelamar`
 --
 
@@ -46,10 +37,20 @@ CREATE TABLE `data_pelamar` (
   `universitas` varchar(50) NOT NULL,
   `pengalaman` int(11) NOT NULL,
   `deskripsi` longtext NOT NULL,
-  `cv_id` INT,
-    `foto_id` INT,
-    FOREIGN KEY (`cv_id`) REFERENCES `dokumen` (`id`),
-    FOREIGN KEY (`foto_id`) REFERENCES `dokumen` (`id`)
+  `cv_id` int(11) DEFAULT NULL,
+  `foto_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dokumen`
+--
+
+CREATE TABLE `dokumen` (
+  `id` int(11) NOT NULL,
+  `cv` longblob DEFAULT NULL,
+  `foto` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -60,6 +61,14 @@ CREATE TABLE `data_pelamar` (
 -- Indexes for table `data_pelamar`
 --
 ALTER TABLE `data_pelamar`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cv_id` (`cv_id`),
+  ADD KEY `foto_id` (`foto_id`);
+
+--
+-- Indexes for table `dokumen`
+--
+ALTER TABLE `dokumen`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -70,7 +79,24 @@ ALTER TABLE `data_pelamar`
 -- AUTO_INCREMENT for table `data_pelamar`
 --
 ALTER TABLE `data_pelamar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT for table `dokumen`
+--
+ALTER TABLE `dokumen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `data_pelamar`
+--
+ALTER TABLE `data_pelamar`
+  ADD CONSTRAINT `data_pelamar_ibfk_1` FOREIGN KEY (`cv_id`) REFERENCES `dokumen` (`id`),
+  ADD CONSTRAINT `data_pelamar_ibfk_2` FOREIGN KEY (`foto_id`) REFERENCES `dokumen` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
