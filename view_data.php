@@ -11,7 +11,7 @@
 <body>
     <!-- pemanbahan div -->
     <div class="container2">
-    <h2>Data Pelamar</h2></br>
+    <h2>Data Pelamar</h2></br></br>
     <!-- mengubah tampilan tombol -->
     <a class="button" href="index.php">Menu Utama</a>
     <table>
