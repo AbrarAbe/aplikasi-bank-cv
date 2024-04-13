@@ -11,10 +11,7 @@
 <body>
     <!-- pemanbahan div -->
     <div class="container">
-        <h2>Update Data Pelamar</h2><br>
-        <!-- mengubah tampilan tombol -->
-        <a class="button" href="view_data.php">Kembali ke Data Pelamar</a>
-        <br><br><br>
+        <h2>Update Data Pelamar</h2><br></br>
         <?php
             // Memeriksa apakah ID pelamar disediakan melalui parameter GET
             if(isset($_GET['id'])) {
@@ -42,18 +39,25 @@
                 $deskripsi = $row['deskripsi'];
         ?>
         <!-- Menampilkan formulir dengan data pelamar yang telah ditemukan -->
-        <form action="proses_update.php" method="post">
+        <form action="proses_update.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <label for="nama">Nama :</label>
             <input type="text" id="nama" name="nama" value="<?php echo $nama; ?>"><br>
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" value="<?php echo $email; ?>"><br>
             <label for="alamat">Alamat :</label>
-            <textarea id="alamat" name="alamat"><?php echo $alamat; ?></textarea><br>
+            <textarea id="alamat" name="alamat" rows="4" ><?php echo $alamat; ?></textarea><br>
             <label for="telepon">Telepon:</label>
             <input type="text" id="telepon" name="telepon" value="<?php echo $telepon; ?>"><br>
-            <label for="pendidikan">Pendidikan :</label>
-            <input type="text" id="pendidikan" name="pendidikan" value="<?php echo $pendidikan; ?>"><br>
+            <label for="pendidikan">Pendidikan Terakhir :</label>
+            <select id="pendidikan" name="pendidikan" required>
+                <option value="">Pilih Pendidikan</option>
+                <option value="SMA/SMK">SMA/SMK</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Sarjana (S1)">Sarjana (S1)</option>
+                <option value="Magister (S2)">Magister (S2)</option>
+                <option value="Doktor (S3)">Doktor (S3)</option>
+            </select><br>
             <!-- Penambahan form universitas -->
             <label for="universitas">Universitas :</label>
             <input type="text" id="universitas" name="universitas" value="<?php echo $universitas; ?>"><br>
@@ -62,8 +66,16 @@
             <input type="number" id="pengalaman" name="pengalaman" value="<?php echo $pengalaman; ?>"><br>
             <!-- Penambahan form deskripsi -->
             <label for="deskripsi">Deskripsi Pengalaman :</label>
-            <textarea id="deskripsi" name="deskripsi"><?php echo $deskripsi; ?></textarea><br>
-            <input type="submit" value="Update Data"><br><br><br>
+            <textarea id="deskripsi" name="deskripsi" rows="6" ><?php echo $deskripsi; ?></textarea><br>
+            <!-- tambah kolom upload CV -->
+            <label for="cv">Upload CV (PDF):</label>
+            <input type="file" id="cv" name="cv" accept=".pdf"><br>
+            <!-- tambah kolom upload Pas Foto -->
+            <label for="foto">Upload Pas Foto :</label>
+            <input type="file" id="foto" name="foto" accept="image/*"><br>
+            <!-- mengubah tampilan tombol -->
+            <a class="button" href="view_data.php">Kembali ke Data Pelamar</a>
+            <input class="mgr" type="submit" value="Update Data"><br><br><br>
         </form>
         <?php
             } else {
