@@ -24,6 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dokumen`
+--
+
+CREATE TABLE `dokumen` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `cv` LONGBLOB,
+    `foto` LONGBLOB
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
 -- Table structure for table `data_pelamar`
 --
 
@@ -36,7 +45,11 @@ CREATE TABLE `data_pelamar` (
   `pendidikan` varchar(50) NOT NULL,
   `universitas` varchar(50) NOT NULL,
   `pengalaman` int(11) NOT NULL,
-  `deskripsi` longtext NOT NULL
+  `deskripsi` longtext NOT NULL,
+  `cv_id` INT,
+    `foto_id` INT,
+    FOREIGN KEY (`cv_id`) REFERENCES `dokumen` (`id`),
+    FOREIGN KEY (`foto_id`) REFERENCES `dokumen` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
