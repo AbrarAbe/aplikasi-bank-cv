@@ -61,7 +61,7 @@
             <!-- Menampilkan formulir dengan data pelamar yang telah ditemukan -->
             <form action="proses_update.php" method="post">
                 <!-- Penambahan form deskripsi -->
-                <textarea id="deskripsi" name="deskripsi" readonly><?php echo $deskripsi; ?></textarea><br>
+                <textarea id="deskripsi" name="deskripsi" rows="4"  readonly><?php echo $deskripsi; ?></textarea><br>
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <label for="nama">Nama :</label>
                 <input type="text" id="nama" name="nama" value="<?php echo $nama; ?>" readonly><br>
